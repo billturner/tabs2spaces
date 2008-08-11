@@ -1,3 +1,3 @@
 A simple, inefficient way to recursively convert a directory full of source code files from using tabs to spaces.
 
-If you can find a better way to do the actual conversion, I'll gladly change it (or change it yourself and send me a pull request). For some reason the <code>expand</code> command won't let you write the output back to the file itself.
+If you can find a better way to do the actual conversion, I'll gladly change it (or change it yourself and send me a pull request). For some reason the expand command won't let you write the output back to the file itself.

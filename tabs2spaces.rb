@@ -11,7 +11,7 @@ rm_path = '/bin/rm'
 
 # How many spaces & what to (and not to) convert
 how_many_spaces = 2
-valid_extensions = ['.rake', '.css', '.rhtml', '.rb', '.erb', '.php', '.js', '.haml', '.yml', '.sql', '.conf']
+valid_extensions = ['.rake', '.css', '.rhtml', '.rb', '.erb', '.php', '.js', '.haml', '.yml', '.sql', '.conf', '.builder']
 valid_extensionless_files = ['.htaccess']
 invalid_dirs = ['.svn', '.git', 'changes', 'cache', 'create', 'data', 'php', 'vendor', 'test', 'tmp', 'log', 'doc', 'gems']
 invalid_files = ['prototype.js', 'controls.js', 'dragdrop.js', 'effects.js', 'dispatch.fcgi', 'dispatch.rb', 'merb.fcgi', 'dispatch.cgi']
@@ -33,9 +33,7 @@ Find.find(source_dir) do |path|
       puts " -> Converting file: #{path}\n"
       tmp_file = "#{tmp_dir}~#{File.basename(path.downcase)}"
       full_cmd = "#{expand_path} -t#{how_many_spaces} #{path} > #{tmp_file}; #{cat_path} #{tmp_file} > #{path}; #{rm_path} #{tmp_file}"
-      #puts full_cmd
       system(full_cmd)
-      puts "\n"
       total_files += 1
     end
   end
