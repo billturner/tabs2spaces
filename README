@@ -1,3 +1,9 @@
 A simple, inefficient way to recursively convert a directory full of source code files from using tabs to spaces.
 
+Call from the command line, passing the directory path along as the first and only argument:
+
+    tabs2spaces /path/to/convert/the/files
+
+Otherwise, it will default to the /tmp directory.
+
 If you can find a better way to do the actual conversion, I'll gladly change it (or change it yourself and send me a pull request). For some reason the expand command won't let you write the output back to the file itself.

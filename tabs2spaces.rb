@@ -1,9 +1,12 @@
 #!/usr/bin/env ruby
 
+# Call it via the command line, where the first (and only) parameter is the directory where 
+# the source code files exist
+
 require 'find'
 
 # Path & executables vars
-source_dir = '/path/where/your/files/are'
+source_dir = (!ARGV.first.empty? && File.directory?(ARGV.first)) ? ARGV.first : "/tmp"
 tmp_dir = '/tmp/'
 expand_path = '/usr/bin/expand'
 cat_path = '/bin/cat'
@@ -14,7 +17,7 @@ how_many_spaces = 2
 valid_extensions = ['.rake', '.css', '.rhtml', '.rb', '.erb', '.php', '.js', '.haml', '.yml', '.sql', '.conf', '.builder']
 valid_extensionless_files = ['.htaccess']
 invalid_dirs = ['.svn', '.git', 'changes', 'cache', 'create', 'data', 'php', 'vendor', 'test', 'tmp', 'log', 'doc', 'gems']
-invalid_files = ['prototype.js', 'controls.js', 'dragdrop.js', 'effects.js', 'dispatch.fcgi', 'dispatch.rb', 'merb.fcgi', 'dispatch.cgi']
+invalid_files = ['jquery.js', 'jquery.corner.js', 'jquery-ui.js', 'prototype.js', 'controls.js', 'dragdrop.js', 'effects.js', 'dispatch.fcgi', 'dispatch.rb', 'merb.fcgi', 'dispatch.cgi']
 total_files = 0
 
 Find.find(source_dir) do |path|
